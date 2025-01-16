@@ -41,14 +41,18 @@ const BlogCard = ({ post }: BlogCardProps) => {
           )}
         </div>
         <div className='blog__card-content'>
-          <h2
-            className='blog__card-title'
-            dangerouslySetInnerHTML={sanitize(post.title.rendered)}
-          />
-          <div
-            className='blog__card-excerpt'
-            dangerouslySetInnerHTML={sanitize(post.excerpt?.rendered)}
-          />
+          {post.title.rendered && (
+            <h2
+              className='blog__card-title'
+              dangerouslySetInnerHTML={sanitize(post.title.rendered)}
+            />
+          )}
+          {post.excerpt?.rendered && (
+            <div
+              className='blog__card-excerpt'
+              dangerouslySetInnerHTML={sanitize(post.excerpt.rendered)}
+            />
+          )}
           <time className='blog__card-date'>
             {new Date(post.date).toLocaleDateString('en-US')}
           </time>
