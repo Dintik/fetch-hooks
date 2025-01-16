@@ -1,0 +1,32 @@
+.blog-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.blog-pagination__link {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #666;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.blog-pagination__link:hover {
+  background: #f5f5f5;
+}
+
+.blog-pagination__link.active {
+  background: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .blog-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+} 

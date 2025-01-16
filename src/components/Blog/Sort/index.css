@@ -1,0 +1,25 @@
+.blog-sort {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.blog-sort button {
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.blog-sort button:hover {
+  background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .blog-sort {
+    justify-content: center;
+  }
+} 

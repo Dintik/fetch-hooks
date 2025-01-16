@@ -1,0 +1,33 @@
+.blog-categories {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blog-categories__item {
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.blog-categories__item:hover {
+  background: #f5f5f5;
+}
+
+.blog-categories__item.active {
+  background: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+@media (max-width: 768px) {
+  .blog-categories {
+    justify-content: center;
+  }
+} 
