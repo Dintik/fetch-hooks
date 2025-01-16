@@ -1,0 +1,6 @@
+package-lock.json
+.next
+.env
+.env.local
+.env.development
+.env.production
