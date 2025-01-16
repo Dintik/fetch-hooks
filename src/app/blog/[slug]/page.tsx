@@ -37,11 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params
-  const post = await getPost(slug)
 
   return (
     <main className='container'>
-      <Post post={post} />
+      <Post slug={slug} />
     </main>
   )
 }
