@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
+const requestDataCache = new Map()
+
 export const useFetchData = <T>(endpoint: string, options?: RequestInit) => {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState<T | null>(null)
@@ -13,8 +15,17 @@ export const useFetchData = <T>(endpoint: string, options?: RequestInit) => {
         setIsLoading(false)
         return
       }
-      setIsLoading(true)
 
+      const key = JSON.stringify(endpoint)
+
+      if (requestDataCache.has(key)) {
+        console.log(endpoint, ' ---- RETURN CACHED REQUEST DATA')
+        setData(requestDataCache.get(key))
+        setIsLoading(false)
+        return
+      }
+
+      setIsLoading(true)
       setError(null)
 
       try {
@@ -25,6 +36,8 @@ export const useFetchData = <T>(endpoint: string, options?: RequestInit) => {
 
         setHeaders(response.headers)
         const json = await response.json()
+        requestDataCache.set(key, json)
+        console.log(endpoint, ' ---- RETURN NEW REQUEST DATA')
         setData(json)
       } catch (error: unknown) {
         if (error instanceof Error) {
