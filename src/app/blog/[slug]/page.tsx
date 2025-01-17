@@ -4,7 +4,6 @@ import Post from '@/components/Post'
 
 type Props = {
   params: Promise<{ slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 async function getPost(slug: string) {

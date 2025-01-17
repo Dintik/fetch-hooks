@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
 
-export function useFetchData<T>(endpoint: string, options?: RequestInit) {
+export const useFetchData = <T>(endpoint: string, options?: RequestInit) => {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [headers, setHeaders] = useState<Headers | null>(null)
 
   const getData = useCallback(
     async (signal: AbortSignal) => {
@@ -12,6 +13,7 @@ export function useFetchData<T>(endpoint: string, options?: RequestInit) {
         setIsLoading(false)
         return
       }
+      setIsLoading(true)
 
       setError(null)
 
@@ -21,6 +23,7 @@ export function useFetchData<T>(endpoint: string, options?: RequestInit) {
           throw new Error(`Response status: ${response.status}`)
         }
 
+        setHeaders(response.headers)
         const json = await response.json()
         setData(json)
       } catch (error: unknown) {
@@ -45,5 +48,5 @@ export function useFetchData<T>(endpoint: string, options?: RequestInit) {
     return () => controller.abort()
   }, [getData])
 
-  return { data, isLoading, error }
+  return { data, isLoading, error, headers }
 }

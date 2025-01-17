@@ -15,3 +15,16 @@ export interface WordPressPost {
   slug: string
   featured_media: number
 }
+
+export interface SearchParamsType {
+  page: string | null
+  categories: string | null
+  orderby: 'date' | 'title' | null
+  order: 'asc' | 'desc' | null
+}
+
+export type PaginationType = {
+  total: number
+  totalPages: number
+  currentPage: number
+}
