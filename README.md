@@ -1,24 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fetch Hooks
 
-## Getting Started
+A powerful React hooks library for efficient data fetching and state management, specifically designed for WordPress API integration. This project provides a set of custom hooks that handle data fetching, caching, and filtering with built-in TypeScript support.
 
-First, run the development server:
+## 🚀 Features
+
+- **Smart Data Fetching**: Custom hooks for efficient API data retrieval with automatic caching
+- **WordPress Integration**: Built-in support for WordPress REST API with pagination and filtering
+- **Type Safety**: Full TypeScript support with comprehensive type definitions
+- **Performance Optimized**: Built-in caching mechanism to reduce API calls
+- **Modern Development**: Next.js 15.1.4 with React 19 and modern tooling
+
+## 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/fetch-hooks.git
+cd fetch-hooks
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up environment variables:
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```env
+# WordPress API Configuration
+NEXT_PUBLIC_API_ENDPOINT_WORDPRESS=your_wordpress_api_url_here
+NEXT_PUBLIC_IMAGE_HOSTNAME=your_image_hostname
+```
+
+## 🛠️ Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📝 Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start development server
+- `npm run build` - Build production version
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/          # Next.js app router pages
+├── assets/       # Static assets
+├── components/   # React components
+├── constants/    # Application constants
+├── helpers/      # Utility functions
+├── hooks/        # Custom React hooks
+│   ├── useFetchData.ts         # Core data fetching hook with caching
+│   ├── useFilterList.ts        # WordPress posts filtering hook
+│   └── useCreateQueryString.ts # URL query string management
+└── types/        # TypeScript type definitions
+```
+
+## 🔧 Tech Stack
+
+- **Framework**: Next.js 15.1.4
+- **Language**: TypeScript
+- **UI Library**: React 19
+- **API Integration**: WordPress REST API
+- **Code Quality**: ESLint, Prettier
+- **Security**: DOMPurify for XSS protection
 
 ## Learn More
 
